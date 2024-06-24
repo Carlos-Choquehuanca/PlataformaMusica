@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="admin.js" defer></script>
+</head>
+<body>
+    <nav>
+        <a href="#lista" id="link-lista">Lista de músicas</a>
+        <a href="#registro" id="link-registro">Registrar música</a>
+        <a href="#editar" id="link-editar"></a>
+        <button id="logoutButton">Cerrar sesión</button>
+    </nav>
+    <main>
+        <div id="section-lista" class="form-container">
+            <h2>Lista de músicas</h2>
+            <input type="text" id="searchInput" placeholder="Buscar música...">
+            <table class="table text-center">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col" class="col-2">Título</th>
+                        <th scope="col" class="col-2">Autor</th>
+                        <th scope="col" class="col-2">Tipo</th>
+                        <th scope="col" class="col-4">Descripción</th>
+                        <th scope="col" class="col-2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas se llenarán con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="section-registro" class="form-container" style="display: none;">
+            <h2>Registrar Música</h2>
+            <form id="registerMusicForm" enctype="multipart/form-data">
+                <input type="text" id="title" name="title" placeholder="Título" required>
+                <input type="text" id="author" name="author" placeholder="Autor" required>
+                <input type="text" id="type" name="type" placeholder="Tipo" required>
+                <textarea id="description" name="description" placeholder="Descripción" required></textarea>
+                <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+
+        <div id="section-editar" class="form-container" style="display: none;">
+            <h2>Editar Música</h2>
+            <form id="editMusicForm" enctype="multipart/form-data">
+                <input type="hidden" id="musicId" name="id" required>
+                <input type="text" id="editTitle" name="title" placeholder="Título" required>
+                <input type="text" id="editAuthor" name="author" placeholder="Autor" required>
+                <input type="text" id="editType" name="type" placeholder="Tipo" required>
+                <textarea id="editDescription" name="description" placeholder="Descripción" required></textarea>
+                <input type="file" id="editAudioFile" name="audioFile" accept="audio/*">
+                <button type="submit">Editar</button>
+            </form>
+        </div>
+
+        <!-- Reproductor de audio -->
+        <audio id="audioPlayer" controls style="display: none;"></audio>
+    </main>
+</body>
+</html>
